@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="IMAKOM, IMAKOM UNPAB, Ikatan Mahasiswa Komputer, Universitas Pembangunan Pancabudi Budi, organisasi Pancabudi Budi">
+    <meta name="keywords" content="IMAKOM, IMAKOM UNPAB, Ikatan Mahasiswa Komputer, Universitas Pembangunan Pancabudi Budi, organisasi Pancabudi Budi, ikatan mahasiswa, Pancabudi, Pekan Esport, Dies Natalis, Permikomnas Wilayah 1, Permikomnas">
     <meta name="author" content="Ikatan Mahasiswa Komputer" />
     <meta image="{{ url('/images/logo_imakom.webp') }}">
     <meta property="og:type" content="article">
@@ -38,20 +38,28 @@
 
 <body>
     <!-- Header -->
-    <nav class="nav-dark" x-data="{ open: false }">
+    <nav class="nav-dark w-3/5" x-data="{ open: false }">
+        <!---
         <div class="logo light">
-            <a href="{{ route('home') }}" aria-label="Light Logo Imakom"><img src="{{ url('./images/kata_imakom.webp') }}" alt="Logo Kata Imakom" height="50"></a>
+            <a href="{{ route('home') }}" aria-label="Light Logo Imakom">
+                <img src="{{ url('./images/kata_imakom.webp') }}" class="h-14" alt="Logo Kata Imakom" height="50">
+            </a>
         </div>
+        --->
         <div class="logo dark">
-            <a href="{{ route('home') }}" aria-label="Dark Logo Imakom"><img src="{{ url('./images/logo_imakom.webp') }}" style="height: 50px; width: 90px;" alt="Logo Header Imakom" /></a>
+            @if (request()->path() != '/')
+            <a href="{{ route('home') }}" aria-label="Dark Logo Imakom">
+                <img src="{{ url('./images/logo_imakom.webp') }}" class="bg-white rounded-full -mt-5 w-28 h-28" alt="Logo Header Imakom" />
+            </a>
+            @endif
         </div>
         <div class="menu bg-black lg:bg-inherit" :class="open ? 'open' : ''">
             <a class="menu-item" href="{{ route('home') }}" aria-label="Anchor to Beranda">BERANDA</a>
+            <a class="menu-item font-bold" href="#">
+                DIES NATALIS Ke-12
+            </a>
             <a class="menu-item" href="{{ route('pekanesport') }}">
-                <span class="inline-flex items-center py-1 px-3 rounded-full text-md font-medium text-gray-800 bg-red-500 dark:bg-white/10 dark:text-white">
-                    NEW
-                </span>
-                PEKAN ESPORT VOL. 2
+                PEKAN ESPORT Vol. 2
             </a>
             <a class="menu-item" href="{{ route('structure') }}" aria-label="Anchor to Pengurus">PENGURUS</a>
             <a class="menu-item" href="{{ route('workplan') }}" aria-label="Anchor to Program Kerja">PROGRAM KERJA</a>
@@ -98,7 +106,7 @@
         </div>
     </div>
     <div class="text-center text-slate-300 p-3 bg-[#332e4dd1]">
-        <span>Copyright &copy; {{ date('Y') }} All Right Reserved. Ikatan Mahasiswa Komputer. Version {{ env('VERSION', '1.0.0') }}.</span>
+        <span>Copyright &copy; 2023 - {{ date('Y') }} All Right Reserved. Ikatan Mahasiswa Komputer. Version {{ env('VERSION', '1.0.0') }}.</span>
     </div>
 </body>
 

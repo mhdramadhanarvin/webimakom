@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Board;
 use Illuminate\View\View;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {

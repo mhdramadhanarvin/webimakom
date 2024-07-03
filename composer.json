@@ -22,6 +22,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "maatwebsite/excel": "^3.1",
+        "propaganistas/laravel-phone": "^5.3",
         "spatie/laravel-permission": "^6.3",
         "spatie/laravel-sitemap": "^7.2",
         "webbingbrasil/filament-copyactions": "3.x"

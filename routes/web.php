@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 // use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StructureController;
@@ -28,6 +29,9 @@ Route::get('/gallery', [GalleryController::class, 'index'])->name('gallery');
 Route::get('/article', [ArticleController::class, 'index'])->name('article');
 Route::get('/article/{slug}', [ArticleController::class, 'detail'])->name('article.detail');
 Route::get('/workplan', [WorkplanController::class, 'index'])->name('workplan');
+
+Route::get('/event/{link_registration}', [EventController::class, 'index'])->name('event.form');
+Route::post('/event/{link_registration}', [EventController::class, 'submit'])->name('event.form.submit');
 
 Route::get('/pekanesport', [PekanEsportController::class, 'index'])->name('pekanesport');
 Route::get('/pekanesport/register', [PekanEsportController::class, 'form'])->name('pekanesport.form');

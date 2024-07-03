@@ -2,20 +2,14 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
 use App\Models\CategoryGallery;
 use Filament\Resources\Resource;
-use Filament\Forms\Components\Grid;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\TextInput;
-use Filament\Forms\Components\FileUpload;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\CategoryGalleryResource\Pages;
-use App\Filament\Resources\CategoryGalleryResource\RelationManagers;
 
 class CategoryGalleryResource extends Resource
 {
@@ -23,16 +17,16 @@ class CategoryGalleryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Galeri';
+    protected static ?string $navigationGroup = 'CMS';
 
     public static function getPluralLabel(): string
     {
-        return __('Kategori');
+        return __('Kategori Galeri');
     }
 
     public static function getModelLabel(): string
     {
-        return __('Kategori');
+        return __('Kategori Galeri');
     }
 
     public static function form(Form $form): Form
