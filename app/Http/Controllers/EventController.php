@@ -12,6 +12,8 @@ use Illuminate\View\View;
 use App\Notifications\EventParticipantRegisterNotification;
 use App\Services\EncryptDecrypt;
 use chillerlan\QRCode\QRCode as QRCode;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class EventController extends Controller
 {
@@ -20,6 +22,14 @@ class EventController extends Controller
 
         $event = Event::where('link_registration', $link_registration)->firstOrFail();
         if ($event == false) abort(404);
+
+        if (Carbon::create($event->open_registration_date)->greaterThan(now())) { // registrasi belum dibuka
+            Session::flash('status-event', false);
+            Session::flash('message', 'Pendaftaran belum dibuka');
+        } elseif (Carbon::create($event->close_registration_date)->lessThan(now())) { // registrasi sudah ditutup
+            Session::flash('status-event', false);
+            Session::flash('message', 'Pendaftaran sudah tutup');
+        }
 
         $event->event_start = $this->formatDate($event->event_start);
         $event->event_end = $this->formatDate($event->event_end);
@@ -68,9 +78,9 @@ class EventController extends Controller
         }
     }
 
-    public function ticket($ticket): View
+    public function ticket(Request $request): View
     {
-        $decryt = EncryptDecrypt::decryptText($ticket);
+        $decryt = EncryptDecrypt::decryptText($request->ticket);
         $explodeLink = explode(":", $decryt);
         $participant = EventParticipant::find($explodeLink[1]);
         if (!$participant) abort(403);

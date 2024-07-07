@@ -85,9 +85,11 @@ class EventResource extends Resource
                 ]),
                 Grid::make(2)->schema([
                     DateTimePicker::make('open_registration_date')
-                        ->label('Tanggal Pendaftaran Dibuka'),
+                        ->label('Tanggal Pendaftaran Dibuka')
+                        ->required(fn(Get $get) => $get('is_registration_open')),
                     DateTimePicker::make('close_registration_date')
-                        ->label('Tanggal Pendaftaran Ditutup'),
+                        ->label('Tanggal Pendaftaran Ditutup')
+                        ->required(fn(Get $get) => $get('is_registration_open')),
                 ]),
 
             ]);

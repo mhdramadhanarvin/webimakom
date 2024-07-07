@@ -35,9 +35,9 @@ Route::get('/pekanesport/register', [PekanEsportController::class, 'form'])->nam
 Route::get('/pekanesport/{game}', [PekanEsportController::class, 'game'])->name('pekanesport.game');
 Route::post('/pekanesport/register', [PekanEsportController::class, 'formSubmit'])->name('pekanesport.form.submit');
 
+Route::get('/event/ticket', [EventController::class, 'ticket'])->name('event.ticket');
 Route::get('/event/{link_registration}', [EventController::class, 'index'])->name('event.form');
 Route::post('/event/{link_registration}', [EventController::class, 'submit'])->name('event.form.submit');
-Route::get('/event/ticket/{ticket}', [EventController::class, 'ticket'])->name('event.ticket');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

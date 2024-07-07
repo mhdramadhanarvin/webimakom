@@ -37,7 +37,12 @@ class EventParticipantRegisterNotification extends Notification
     {
         return (new MailMessage)
             ->subject('Pendaftaran Kegiatan ' . $notifiable->event->event_name)
-            ->markdown('mail.event.participant', ['notifiable' => $notifiable, 'url' => route('event.ticket', EncryptDecrypt::encryptText($notifiable->event->id . ':' . $notifiable->id))]);
+            ->markdown('mail.event.participant', [
+                'notifiable' => $notifiable,
+                'url' => route('event.ticket', [
+                    'ticket' => EncryptDecrypt::encryptText($notifiable->event->id . ':' . $notifiable->id)
+                ])
+            ]);
     }
 
     /**
