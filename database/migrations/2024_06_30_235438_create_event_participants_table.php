@@ -17,10 +17,12 @@ return new class extends Migration
             $table->foreign('event_id')->references('id')->on('events');
             $table->string('name');
             $table->string('email');
-            $table->string('whatsapp_number');
+            $table->string('phone_number');
             $table->enum('gender', ['male', 'female']);
             $table->string('institusion');
+            $table->boolean('is_attended')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

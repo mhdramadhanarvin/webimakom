@@ -14,8 +14,9 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('event_name');
+            $table->string('location');
             $table->timestamp('event_start');
-            $table->timestamp('event_end');
+            $table->timestamp('event_end')->nullable();
             $table->timestamp('open_registration_date')->nullable();
             $table->timestamp('close_registration_date')->nullable();
             $table->boolean('is_registration_open');

@@ -30,14 +30,14 @@ Route::get('/article', [ArticleController::class, 'index'])->name('article');
 Route::get('/article/{slug}', [ArticleController::class, 'detail'])->name('article.detail');
 Route::get('/workplan', [WorkplanController::class, 'index'])->name('workplan');
 
-Route::get('/event/{link_registration}', [EventController::class, 'index'])->name('event.form');
-Route::post('/event/{link_registration}', [EventController::class, 'submit'])->name('event.form.submit');
-
 Route::get('/pekanesport', [PekanEsportController::class, 'index'])->name('pekanesport');
 Route::get('/pekanesport/register', [PekanEsportController::class, 'form'])->name('pekanesport.form');
 Route::get('/pekanesport/{game}', [PekanEsportController::class, 'game'])->name('pekanesport.game');
 Route::post('/pekanesport/register', [PekanEsportController::class, 'formSubmit'])->name('pekanesport.form.submit');
 
+Route::get('/event/{link_registration}', [EventController::class, 'index'])->name('event.form');
+Route::post('/event/{link_registration}', [EventController::class, 'submit'])->name('event.form.submit');
+Route::get('/event/ticket/{ticket}', [EventController::class, 'ticket'])->name('event.ticket');
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');

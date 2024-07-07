@@ -12,6 +12,7 @@ use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
+use Filament\Forms\Get;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -20,6 +21,7 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class EventResource extends Resource
 {
@@ -50,6 +52,14 @@ class EventResource extends Resource
             ->schema([
                 TextInput::make('event_name')
                     ->label('Judul')
+                    ->live(onBlur: true)
+                    ->afterStateUpdated(function (Set $set, $state, $context, Get $get) {
+                        if ($context === 'create') $set('link_registration', Str::slug($state) . rand(1, 99));
+                        if ($get('is_registration_open') == false) $set('link_registration', null);
+                    })
+                    ->required(),
+                TextInput::make('location')
+                    ->label('Tempat Pelaksanaan')
                     ->required(),
                 Grid::make(2)->schema([
                     DateTimePicker::make('event_start')
@@ -57,17 +67,16 @@ class EventResource extends Resource
                         ->required(),
                     DateTimePicker::make('event_end')
                         ->label('Tanggal Berakhir Kegiatan')
-                        ->required(),
+                        ->helperText('Kosongkan bila kegiatan hanya satu hari'),
                 ]),
                 Grid::make(2)->schema([
                     Toggle::make('is_registration_open')
                         ->label('Buka Pendaftaran Peserta?')
                         ->live(onBlur: true)
-                        ->afterStateUpdated(function (Set $set, $state, $context) {
-                            if ($context === 'create' && $state == true) $set('link_registration', bin2hex(openssl_random_pseudo_bytes(5)));
+                        ->afterStateUpdated(function (Set $set, $state, $context, Get $get) {
+                            if ($context === 'create' && $state == true) $set('link_registration', Str::slug($get('event_name')) . rand(0, 99));
                             if ($state == false) $set('link_registration', null);
-                        })
-                        ->required(),
+                        }),
                     TextInput::make('link_registration')
                         ->prefix(route('event.form', ''))
                         ->label('Link Pendaftaran')
@@ -88,7 +97,10 @@ class EventResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('event_name')->label('Nama Event'),
+                TextColumn::make('event_name')->label('Nama Event')->searchable(),
+                TextColumn::make('participants_attended_count')
+                    ->label('Peserta Hadir')
+                    ->getStateUsing(fn($record) => $record->participants()->where('is_attended', true)->count() . '/' . $record->participants()->count()),
                 TextColumn::make('event_start')
                     ->label('Tgl Pelaksanaan')
                     ->getStateUsing(function (Model $record) {
@@ -108,11 +120,9 @@ class EventResource extends Resource
                 TextColumn::make('link_registration')
                     ->label('Link Pendaftaran')
                     ->copyable()
-                    ->getStateUsing("KLIK DISINI")
+                    ->getStateUsing(fn(Model $model): string => $model->link_registration == null ? 'BELUM ADA' : 'KLIK DISINI')
                     ->copyMessage('Link copied')
-                    ->copyableState(fn(Model $model): string => route('event.form', $model->link_registration))
-
-                // TextColumn::make('close_registration_date')->label('Tgl Tutup Pendaftaran')->date('d F Y H:i:s'),
+                    ->copyableState(fn(Model $model): string => route('event.form', $model->link_registration ?? ''))
             ])
             ->filters([
                 //

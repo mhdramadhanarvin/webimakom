@@ -49,7 +49,7 @@ class ArticleResource extends Resource
                     ->required()
                     ->live(onBlur: true)
                     ->afterStateUpdated(function (Set $set, $state, $context) {
-                        if ($context === 'create') $set('slug', Str::slug($state) . now()->isoFormat('X'));
+                        if ($context === 'create') $set('slug', Str::slug($state) . rand(1,99));
                     })
                     ->maxLength(200)
                     ->required(),

@@ -10,6 +10,26 @@
                 @csrf
                 <h1 class="text-center text-4xl font-black text-zinc-800">Pendaftaran Peserta<br>{{ $event->event_name }}</h1>
                 <hr class="h-1 mx-auto bg-purple-500 border-0 rounded my-6 dark:bg-white">
+                <div>
+                    <table>
+                        <tr>
+                            <td>Tempat</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td>{{ $event->location }}</td>
+                        </td>
+                        <tr>
+                            <td>Tanggal Pelaksanaan</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td>{{ $event->event_start }} - {{ $event->event_end }}</td>
+                        </td>
+                        <tr>
+                            <td>Tanggal Pendaftaran Peserta</td>
+                            <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                            <td>{{ $event->open_registration_date }} - {{ $event->close_registration_date }}</td>
+                        </td>
+                    </table>
+                </div>
+                <hr class="h-1 mx-auto bg-purple-500 border-0 rounded my-6 dark:bg-white">
                 @if ($errors->any())
                 <div class="relative leading-normal py-4 px-5 text-red-700 bg-red-100 rounded-lg mb-2" role="alert">
                     <ul class="list-disc list-inside">
@@ -21,7 +41,7 @@
                 @endif
                 <div class="mb-5">
                     <x-input-label for="name">Nama Lengkap</x-input-label>
-                    <x-text-input type="name" id="name" name="name" placeholder="Masukkan nama lengkap" value="{{ old('name') }}" required></x-text-input>
+                    <x-text-input type="text" id="name" name="name" placeholder="Masukkan nama lengkap" value="{{ old('name') }}" required></x-text-input>
                 </div>
                 <div class="mb-5">
                     <x-input-label for="email">Email</x-input-label>
