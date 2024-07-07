@@ -45,6 +45,7 @@ class EventSubmitValidation extends FormRequest
             '*.required' => ':attribute tidak boleh kosong',
             'phone_number.phone' => 'Format :attribute harus sesuai',
             'phone_number.min' => 'Format :attribute harus sesuai',
+            'email.unique' => ':Attribute sudah terdaftar',
         ];
     }
 }

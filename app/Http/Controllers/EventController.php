@@ -32,7 +32,7 @@ class EventController extends Controller
         }
 
         $event->event_start = $this->formatDate($event->event_start);
-        $event->event_end = $this->formatDate($event->event_end);
+        $event->event_end = $event->event_end == null ? "Selesai" : $this->formatDate($event->event_end);
         $event->open_registration_date = $this->formatDate($event->open_registration_date);
         $event->close_registration_date = $this->formatDate($event->close_registration_date);
 
