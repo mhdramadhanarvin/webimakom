@@ -85,9 +85,27 @@ class EventController extends Controller
         $participant = EventParticipant::find($explodeLink[1]);
         if (!$participant) abort(403);
 
-        $qrcode = (new QRCode)->render($decryt);
+        $qrcode = (new QRCode)->render($request->ticket);
         $participant->event->event_start = $this->formatDate($participant->event->event_start);
 
         return view('event-ticket', compact('participant', 'qrcode'));
+    }
+
+    public function ticketCheck(Request $request): View
+    {
+        if ($request->ticket) {
+            $decryt = EncryptDecrypt::decryptText($request->ticket);
+            $explodeLink = explode(":", $decryt);
+            $participant = EventParticipant::find($explodeLink[1]);
+            if (!$participant) abort(403);
+
+            $participant->is_attended = true;
+            $participant->save();
+
+            Session::flash('attendance', $participant->name);
+            Session::flash('event', $participant->event->event_name);
+        }
+
+        return view('event-ticket-check');
     }
 }
