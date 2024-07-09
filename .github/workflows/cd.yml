@@ -62,5 +62,6 @@ jobs:
             unzip -o app.zip -d /home/${{ secrets.SSH_USERNAME }}/public_html/
             rm -rf app.zip
             sed -i~ '/^VERSION=/s/=.*/="${{ vars.VERSION }}"/' .env
+            php artisan migrate --force
             # sed -i~ '/^HASH_VERSION=/s/=.*/="${{ github.sha }}"/' .env
             # sed -i~ '/^HASH_VERSION=/s/=.*/="${{ vars.HASH_VERSION }}"/' .env
