@@ -38,8 +38,8 @@
 
 <body>
     <!-- Header -->
-    <nav class="nav-dark sm:w-3/5" x-data="{ open: false }">
-        <div class="logo dark w-40 sm:w-auto">
+    <nav class="nav-dark w-full justify-center" x-data="{ open: false }">
+        <div class="logo dark w-40 sm:w-auto mr-28">
             @if (request()->path() != '/')
             <a href="{{ route('home') }}" aria-label="Dark Logo Imakom">
                 <img src="{{ url('./images/logo_imakom.webp') }}" class="bg-white rounded-full -mt-5 w-28 h-28" alt="Logo Header Imakom" />
@@ -48,16 +48,11 @@
         </div>
         <div class="menu bg-black lg:bg-inherit" :class="open ? 'open' : ''">
             <a class="menu-item" href="{{ route('home') }}" aria-label="Anchor to Beranda">BERANDA</a>
-            <a class="menu-item font-bold" href="#">
-                DIES NATALIS Ke-12
+            @foreach ($headers as $header)
+            <a class="menu-item" href="{{ route('home') .'/'. $header->url }}">
+                {{ $header->title }}
             </a>
-            <a class="menu-item" href="{{ route('pekanesport') }}">
-                PEKAN ESPORT Vol. 2
-            </a>
-            <a class="menu-item" href="{{ route('structure') }}" aria-label="Anchor to Pengurus">PENGURUS</a>
-            <a class="menu-item" href="{{ route('workplan') }}" aria-label="Anchor to Program Kerja">PROGRAM KERJA</a>
-            <a class="menu-item" href="{{ route('article') }}" aria-label="Anchor to Artikel">ARTIKEL</a>
-            <a class="menu-item" href="{{ route('gallery') }}" aria-label="Anchor to Dokumentasi">DOKUMENTASI</a>
+            @endforeach
         </div>
 
         <div class="nav-icon4" id="mobile-nav" x-on:click="open = ! open">

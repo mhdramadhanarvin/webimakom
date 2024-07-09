@@ -1,59 +1,49 @@
-.content
-{
+.content {
     margin: auto;
     width: 1000px;
     padding-top: 25px;
     padding-bottom: 25px;
 }
 
-.fullscreen
-{
+.fullscreen {
     width: 100%;
     height: 100vh;
 }
 
-.fullscreen.primary
-{
+.fullscreen.primary {
     background: rgba(42, 38, 61, 0.82);
     color: #fff;
 }
 
-.fullscreen.secondary
-{
+.fullscreen.secondary {
     background: rgba(42, 38, 61, 0.82);
-    color:  #fff;
+    color: #fff;
 }
 
-.fullscreen.tertienary
-{
+.fullscreen.tertienary {
     background: rgba(42, 38, 61, 0.82);
-    color:  #fff;
+    color: #fff;
 }
 
-.fullscreen.quartenary
-{
+.fullscreen.quartenary {
     background: var(--color-quartenary);
     color: var(--color-primary);
 }
 
-.fullscreen.secondary-light
-{
+.fullscreen.secondary-light {
     background: var(--color-quartenary-transparent);
 }
 
-.fullscreen.tertienary-light
-{
+.fullscreen.tertienary-light {
     background: var(--color-quartenary-transparent);
 }
 
-.full-image
-{
+.full-image {
     position: relative;
 }
 
 .full-image>.image,
-.full-image>.overlay
-{
+.full-image>.overlay {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -61,89 +51,73 @@
     top: 0px;
 }
 
-.full-image>.image
-{
+.full-image>.image {
     z-index: 0;
 }
 
-.full-image>.image>img
-{
+.full-image>.image>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.full-image>.overlay
-{
+.full-image>.overlay {
     z-index: 1;
     color: rgb(177, 167, 167);
     position: relative;
     background: rgba(42, 38, 61, 0.82);
 }
 
-.full-image>.overlay.secondary
-{
+.full-image>.overlay.secondary {
     background: rgba(42, 38, 61, 0.82);
 }
 
-.full-image>.overlay.tertienary
-{
+.full-image>.overlay.tertienary {
     background: rgba(42, 38, 61, 0.82);
 }
 
-.full-image>.overlay.quartenary
-{
+.full-image>.overlay.quartenary {
     background: var(--color-quartenary-transparent);
     color: var(--color-primary);
 }
 
-.clearfix
-{
+.clearfix {
     width: 100%;
     height: 75px;
 }
 
-.first-content
-{
+.first-content {
     padding-top: 125px;
 }
 
-.content-center
-{
+.content-center {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.header-clear
-{
+.header-clear {
     width: 100%;
     height: 155px;
 }
 
-.img-box
-{
+.img-box {
     width: 100%;
     min-height: 350px;
     object-fit: cover;
     border-radius: var(--border-radius);
 }
 
-.responsive-img
-{
+.responsive-img {
     width: 250px;
 }
 
-.logo-stempel
-{
+.logo-stempel {
     background: #fff;
-    /* opacity: 0.5; */
-    /* padding: 2px; */
     border-radius: 100%;
 }
 
-.content-contact
-{
+.content-contact {
     background: #fff;
     position: absolute;
     left: calc(50% - 500px);
@@ -154,15 +128,13 @@
     color: var(--color-primary);
 }
 
-.content-shadow
-{
-    box-shadow: 0px 0px 50px -10px rgba(0,0,0,0.75);
+.content-shadow {
+    box-shadow: 0px 0px 50px -10px rgba(0, 0, 0, 0.75);
     position: relative;
     z-index: 2;
 }
 
-.initial-banner
-{
+.initial-banner {
     background: #fff;
     height: calc(100% - 225px);
     display: flex;
@@ -170,51 +142,41 @@
     justify-content: center;
 }
 
-.initial-banner>img
-{
+.initial-banner>img {
     height: 100%;
 }
 
-@media only screen and (max-width: 1025px)
-{
-    .initial-banner>img
-    {
+@media only screen and (max-width: 1025px) {
+    .initial-banner>img {
         height: auto;
         width: 100%;
     }
 }
 
-@media only screen and (max-width: 1000px)
-{
-    .content-contact
-    {
+@media only screen and (max-width: 1000px) {
+    .content-contact {
         width: 100%;
         position: static;
         border-radius: 0px;
         margin-top: 200px;
     }
 
-    .content
-    {
+    .content {
         width: 100%;
         padding: 40px;
     }
 
-    .fullscreen
-    {
+    .fullscreen {
         height: auto;
     }
 
-    .responsive-gap
-    {
+    .responsive-gap {
         margin-bottom: 75px;
     }
 }
 
-@media only screen and (max-width: 400px)
-{
-    .responsive-img
-    {
+@media only screen and (max-width: 400px) {
+    .responsive-img {
         width: 100%;
     }
 }

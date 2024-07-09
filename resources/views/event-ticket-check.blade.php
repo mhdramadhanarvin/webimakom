@@ -1,4 +1,4 @@
-@section('title', 'Cek Kehadiran Tiket')
+@section('title', 'Cek Kehadiran Peserta')
 <x-new-app-layout>
     <div class="fullscreen full-image max-h-[7em]">
         <div class="overlay content-center first-content tertienary">
