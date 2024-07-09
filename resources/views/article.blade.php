@@ -38,7 +38,7 @@
                                 alt="Photo profile author {{ $all->title }}" />
                             <p class="ml-4 w-56">
                                 <strong class="block font-medium text-gray-700">{{ $all->user->name }}</strong>
-                                <span class="text-sm text-gray-400">{{ $all->user->roles()->first()->name }}</span>
+                                <span class="text-sm text-gray-400">Penulis</span>
                             </p>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                             class="mb-1 block text-lg font-medium text-gray-700" aria-label="Artikel popular {{ $popular->title }}">
                             {{ Illuminate\Support\Str::words($popular->title, 7, '...') }}
                         </a>
-                        <div class="">
+                        <div class="pt-2">
                             <p class="w-56">
                                 <strong class="block font-medium text-gray-700">{{ $popular->user->name }}</strong>
                             </p>

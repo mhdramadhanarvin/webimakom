@@ -8,18 +8,18 @@ nav {
     align-content: center;
     height: 70px;
     width: 1000px;
-    left: calc(50% - 500px);
+    left: calc(50% - 550px);
     transition: 0.25s all;
 }
 
-nav>.logo {
-    width: 125px;
-    padding-top: 10px;
-}
+/* nav>.logo { */
+/*     width: 125px; */
+/*     padding-top: 10px; */
+/* } */
 
-nav>.logo.dark {
-    display: none;
-}
+/* nav>.logo.dark { */
+/*     display: none; */
+/* } */
 
 nav>.logo>a {
     display: block;

@@ -28,7 +28,7 @@ class ArticleResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
-    protected static ?string $navigationGroup = 'Artikel';
+    protected static ?string $navigationGroup = 'CMS';
 
     public static function getPluralLabel(): string
     {
@@ -49,7 +49,7 @@ class ArticleResource extends Resource
                     ->required()
                     ->live(onBlur: true)
                     ->afterStateUpdated(function (Set $set, $state, $context) {
-                        if ($context === 'create') $set('slug', Str::slug($state));
+                        if ($context === 'create') $set('slug', Str::slug($state) . rand(1,99));
                     })
                     ->maxLength(200)
                     ->required(),
@@ -84,22 +84,6 @@ class ArticleResource extends Resource
                 Grid::make(1)
                     ->schema([
                         RichEditor::make('content')
-                            ->toolbarButtons([
-                                'attachFiles',
-                                'blockquote',
-                                'bold',
-                                'bulletList',
-                                'codeBlock',
-                                'h2',
-                                'h3',
-                                'italic',
-                                'link',
-                                'orderedList',
-                                'redo',
-                                'strike',
-                                'underline',
-                                'undo',
-                            ])
                             ->fileAttachmentsDirectory('attachments')
                             ->fileAttachmentsVisibility('public')
                             ->required()

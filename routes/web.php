@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\GalleryController;
 // use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StructureController;
@@ -33,6 +34,11 @@ Route::get('/pekanesport', [PekanEsportController::class, 'index'])->name('pekan
 Route::get('/pekanesport/register', [PekanEsportController::class, 'form'])->name('pekanesport.form');
 Route::get('/pekanesport/{game}', [PekanEsportController::class, 'game'])->name('pekanesport.game');
 Route::post('/pekanesport/register', [PekanEsportController::class, 'formSubmit'])->name('pekanesport.form.submit');
+
+Route::get('/event/ticket/check', [EventController::class, 'ticketCheck'])->name('event.ticket.check');
+Route::get('/event/ticket', [EventController::class, 'ticket'])->name('event.ticket');
+Route::get('/event/{link_registration}', [EventController::class, 'index'])->name('event.form');
+Route::post('/event/{link_registration}', [EventController::class, 'submit'])->name('event.form.submit');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');

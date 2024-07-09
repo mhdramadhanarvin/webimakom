@@ -3,17 +3,13 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\ArticleCategoryResource\Pages;
-use App\Filament\Resources\ArticleCategoryResource\RelationManagers;
 use App\Models\ArticleCategory;
-use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ArticleCategoryResource extends Resource
 {
@@ -21,16 +17,16 @@ class ArticleCategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Artikel';
+    protected static ?string $navigationGroup = 'CMS';
 
     public static function getPluralLabel(): string
     {
-        return __('Kategori');
+        return __('Kategori Artikel');
     }
 
     public static function getModelLabel(): string
     {
-        return __('Kategori');
+        return __('Kategori Artikel');
     }
 
     public static function form(Form $form): Form

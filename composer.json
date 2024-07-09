@@ -10,6 +10,7 @@
     "require": {
         "php": "^8.1",
         "bezhansalleh/filament-shield": "^3.1",
+        "chillerlan/php-qrcode": "^5.0",
         "coderflexx/laravisit": "^1.4",
         "filament/filament": "^3.1",
         "filament/forms": "^3.1",
@@ -22,6 +23,7 @@
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
         "maatwebsite/excel": "^3.1",
+        "propaganistas/laravel-phone": "^5.3",
         "spatie/laravel-permission": "^6.3",
         "spatie/laravel-sitemap": "^7.2",
         "webbingbrasil/filament-copyactions": "3.x"

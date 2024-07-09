@@ -2,7 +2,6 @@
 
 namespace App\Filament\Resources;
 
-use Filament\Forms;
 use Filament\Tables;
 use App\Models\Gallery;
 use Filament\Forms\Form;
@@ -11,13 +10,9 @@ use Filament\Resources\Resource;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
-use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\FileUpload;
-use Illuminate\Database\Eloquent\Builder;
 use App\Filament\Resources\GalleryResource\Pages;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\GalleryResource\RelationManagers;
 use Filament\Tables\Columns\TextColumn;
 
 class GalleryResource extends Resource
@@ -26,7 +21,7 @@ class GalleryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
-    protected static ?string $navigationGroup = 'Galeri';
+    protected static ?string $navigationGroup = 'CMS';
 
     public static function getPluralLabel(): string
     {
