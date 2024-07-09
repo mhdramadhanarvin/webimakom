@@ -1,44 +1,63 @@
-.row
-{
+.row {
     display: flex;
     flex-wrap: wrap;
 }
 
-.col-2 { width: 16.666666667%; }
-.col-3 { width: 25%; }
-.col-4 { width: 33.33%; }
-.col-5 { width: 41.666666667%; }
-.col-6 { width: 50%; }
-.col-7 { width: 58.33%; }
-.col-8 { width: 66.666666667%; }
-.col-9 { width: 75%; }
-.col-12 { width: 100%; }
+.col-2 {
+    width: 16.666666667%;
+}
 
-[class*="col-"]
-{
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33%;
+}
+
+.col-5 {
+    width: 41.666666667%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33%;
+}
+
+.col-8 {
+    width: 66.666666667%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+[class*="col-"] {
     padding-left: 20px;
     padding-right: 20px;
 }
 
-[class*="col-"]:first-child
-{
+[class*="col-"]:first-child {
     padding-left: 0px;
 }
 
-[class*="col-"]:last-child
-{
+[class*="col-"]:last-child {
     padding-right: 0px;
 }
 
-.row.no-padding>[class*="col-"]
-{
+.row.no-padding>[class*="col-"] {
     padding: 0px;
 }
 
-@media only screen and (max-width: 900px)
-{
-    [class*="col-"]
-    {
+@media only screen and (max-width: 900px) {
+    [class*="col-"] {
         width: 100%;
         padding: 0px;
     }

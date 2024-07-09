@@ -40,6 +40,9 @@
                             <a href="javascript:void(0);"
                                 class="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10" aria-label="Kategori artikel {{ $article->article_category->name }}">{{ $article->article_category->name }}</a>
                         </header>
+                        <div>
+                            <img class="rounded-2xl object-cover max-h-96 mb-5 bg-cover" src="{{ asset('storage/' . $article->thumbnail) }}" />
+                        </div>
                         <div>{!! $article->content !!}</div>
                         <div class="row mt-10">
                             <span class="align-text-bottom mr-2"> KATA KUNCI : </span>

@@ -1,12 +1,11 @@
-:root
-{
-    --color-primary: #28284F;
+:root {
+    --color-primary: #28284f;
     --color-primary-dark: rgb(25, 25, 48);
     --color-primary-transparent: hsla(240, 33%, 23%, 0.75);
 
-    --color-secondary: #CD3B36;
+    --color-secondary: #cd3b36;
     --color-secondary-dark: rgb(168, 48, 44);
-    --color-secondary-light: #F8CFC6;
+    --color-secondary-light: #f8cfc6;
     --color-secondary-light-2: rgb(255, 181, 164);
     --color-secondary-transparent: rgba(205, 59, 54, 0.75);
 
