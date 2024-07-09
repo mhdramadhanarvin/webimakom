@@ -14,6 +14,7 @@ use App\Services\EncryptDecrypt;
 use chillerlan\QRCode\QRCode as QRCode;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\URL;
 
 class EventController extends Controller
 {
@@ -80,6 +81,9 @@ class EventController extends Controller
 
     public function ticket(Request $request): View
     {
+        if (! $request->hasValidSignature()) {
+            abort(401);
+        }
         $decryt = EncryptDecrypt::decryptText($request->ticket);
         $explodeLink = explode(":", $decryt);
         $participant = EventParticipant::find($explodeLink[1]);
@@ -93,6 +97,9 @@ class EventController extends Controller
 
     public function ticketCheck(Request $request): View
     {
+        if (! $request->hasValidSignatureWhileIgnoring(['ticket'])) {
+            abort(401);
+        }
         if ($request->ticket) {
             $decryt = EncryptDecrypt::decryptText($request->ticket);
             $explodeLink = explode(":", $decryt);

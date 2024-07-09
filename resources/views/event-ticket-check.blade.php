@@ -4,13 +4,15 @@
         <div class="overlay content-center first-content tertienary">
         </div>
     </div>
-    <div class="px-3 my-20 row justify-center" onload="load()">
+    <div class="px-3 my-20">
         @session('attendance')
-            <div id="qr-results">{{ session('event') }} - {{ session('attendance') }} - HADIR</div>
+        <div class="row justify-center font-bold">{{ session('event') }} - {{ session('attendance') }} - HADIR</div>
         @endsession
-        <div class="container">
-            <div id="qr-reader" style="width:500px"></div>
-            <div id="qr-reader-results"></div>
+        <div class=" row justify-center" onload="load()">
+            <div class="container">
+                <div id="qr-reader" style="width:500px"></div>
+                <div id="qr-reader-results"></div>
+            </div>
         </div>
     </div>
     <script type="text/javascript" src="{{ asset('js/qrcode.min.js') }}"></script>
@@ -36,7 +38,7 @@
                     // Handle on success condition with the decoded message.
                     console.log(`Scan result ${decodedText}`, decodedResult);
                     //console.log({{ route('event.ticket.check') }} + '?ticket='+decodedText)
-                    window.location.href = "{{URL::to(route('event.ticket.check'))}}" + '?ticket='+decodedText
+                    window.location.href = "{{URL::signedRoute('event.ticket.check')}}" + '&ticket='+decodedText
                     //window.location.replace({{ route('event.ticket.check') . '?ticket=' }}decodedText);
                 }
             }

@@ -7,6 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Support\Facades\URL;
 
 class EventParticipantRegisterNotification extends Notification
 {
@@ -39,7 +40,7 @@ class EventParticipantRegisterNotification extends Notification
             ->subject('Pendaftaran Kegiatan ' . $notifiable->event->event_name)
             ->markdown('mail.event.participant', [
                 'notifiable' => $notifiable,
-                'url' => route('event.ticket', [
+                'url' => URL::signedRoute('event.ticket', [
                     'ticket' => EncryptDecrypt::encryptText($notifiable->event->id . ':' . $notifiable->id)
                 ])
             ]);

@@ -3,9 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\EventParticipantResource\Pages;
-use App\Filament\Resources\EventParticipantResource\RelationManagers;
 use App\Models\EventParticipant;
-use Filament\Forms;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -99,4 +97,5 @@ class EventParticipantResource extends Resource
                 SoftDeletingScope::class,
             ]);
     }
+
 }
