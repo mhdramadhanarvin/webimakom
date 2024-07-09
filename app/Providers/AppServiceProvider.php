@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Models\Header;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -21,9 +23,11 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Vite::macro('image', fn (string $asset) => $this->asset("resources/images/{$asset}"));
-        view()->share(
-            'headers',
-            Header::orderBy('rank')->get() ?? []
-        );
+        if (Schema::hasTable('headers')) {
+            View::share(
+                'headers',
+                Header::orderBy('rank')->get() ?? []
+            );
+        }
     }
 }
