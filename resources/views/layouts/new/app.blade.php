@@ -38,15 +38,8 @@
 
 <body>
     <!-- Header -->
-    <nav class="nav-dark w-3/5" x-data="{ open: false }">
-        <!---
-        <div class="logo light">
-            <a href="{{ route('home') }}" aria-label="Light Logo Imakom">
-                <img src="{{ url('./images/kata_imakom.webp') }}" class="h-14" alt="Logo Kata Imakom" height="50">
-            </a>
-        </div>
-        --->
-        <div class="logo dark">
+    <nav class="nav-dark sm:w-3/5" x-data="{ open: false }">
+        <div class="logo dark w-40 sm:w-auto">
             @if (request()->path() != '/')
             <a href="{{ route('home') }}" aria-label="Dark Logo Imakom">
                 <img src="{{ url('./images/logo_imakom.webp') }}" class="bg-white rounded-full -mt-5 w-28 h-28" alt="Logo Header Imakom" />
