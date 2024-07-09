@@ -48,8 +48,14 @@
         </div>
         <div class="menu bg-black lg:bg-inherit" :class="open ? 'open' : ''">
             <a class="menu-item" href="{{ route('home') }}" aria-label="Anchor to Beranda">BERANDA</a>
+            @php
+                $headers = App\Models\Header::orderBy('rank')->get();
+            @endphp
             @foreach ($headers as $header)
             <a class="menu-item" href="{{ route('home') .'/'. $header->url }}">
+                @if ($header->is_highlight)
+                <span class="inline-flex items-center rounded-md bg-red-500 px-2 py-1 text-xs font-medium text-white ring-1 ring-inset ring-red-600/10">HOT</span>
+                @endif
                 {{ $header->title }}
             </a>
             @endforeach

@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
             WorkplanSeeder::class,
             CaborSeeder::class,
             ContentSeeder::class,
+            HeaderSeeder::class,
         ]);
     }
 }
