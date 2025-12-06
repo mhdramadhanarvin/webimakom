@@ -78,7 +78,7 @@
             STRUKTUR KEPENGURUSAN IMAKOM
         </h3>
         <span class="text-3xl font-semibold block mb-3">
-            TA 2023/2024
+            TA 2025/2026
         </span>
         <div class="inline-flex">
             <img src="{{ url('./images/logo_imakom.webp') }}" width="70" height="70" alt="Logo Mini Imakom">
