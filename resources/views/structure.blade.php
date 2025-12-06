@@ -11,7 +11,7 @@
                         <!-- <img class="responsive-img logo-stempel" src="images/logo imakom.png" /> -->
                     </div>
                     <div class="col-6">
-                        <h1 class="text-3xl text-red-600">PENGURUS & ANGGOTA KEORGANISASIAN 2023/2024</h1>
+                        <h1 class="text-3xl text-red-600">PENGURUS & ANGGOTA KEORGANISASIAN 2025/2026</h1>
                     </div>
                 </div>
                 <div class="responsive-gap"></div>
