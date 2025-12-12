@@ -14,7 +14,7 @@ class Division extends Model
     protected $fillable = ['name'];
 
     protected $casts = [
-        'name' => DivisionEnum::class,
+        //'name' => DivisionEnum::class,
     ];
 
     public function members(): HasMany
