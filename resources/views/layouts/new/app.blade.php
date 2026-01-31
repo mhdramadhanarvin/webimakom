@@ -16,6 +16,7 @@
     <meta property="og:site_name" content="Imakom Unpab">
     <meta property="og:url" content="https://imakomunpab.com/">
     <meta property="og:description" content="Ikatan Mahasiswa Komputer IMAKOM merupakan organisasi resmi kemahasiswaan pada tingkat program studi sebagai eksekutor di Universitas Pembangunan Panca Budi.">
+    <meta name="google-adsense-account" content="ca-pub-9474773870199172">
     <link rel="icon" type="image/png" href="{{ url('/images/favicon.ico') }}" />
     <link rel="apple-touch-icon" href="{{ url('/images/favicon.ico') }}">
     <link rel="canonical" href="https://imakomunpab.com">
